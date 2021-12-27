@@ -1,0 +1,49 @@
+import "./application.cadl";
+import "./connections.cadl";
+import "./health-probe.cadl";
+import "./resource-status.cadl";
+import "./traits.cadl";
+import "./volumes.cadl";
+
+import "@cadl-lang/rest";
+
+namespace Radius;
+
+using Cadl.Http;
+using Cadl.Rest;
+using Cadl.Rest.Resource;
+
+@parentResource(Application)
+model Container {
+    @segment("Container")
+    @key("resourceName")
+    name: string;
+    definition: ContainerDefinition;
+    status: ResourceStatus;
+}
+
+model ContainerDefinition {
+    connections: Connections;
+    container: ContainerDefinitionContainer;
+    secrets?: Map<string, string>;
+    traits?: Trait[];
+}
+
+model ContainerStatus {
+    ...ResourceStatus;
+}
+
+model ContainerPort {
+    containerPort: int32;
+    protocol?: "TCP" | "UDP";
+    provides?: string;
+}
+
+model ContainerDefinitionContainer {
+    image: string;
+    env?: Map<string, string>;
+    ports?: Map<string, ContainerPort>;
+    readinessProbe?: HealthProbe;
+    livenessProbe?: HealthProbe;
+    volumes?: Map<string, Volume>;
+}

@@ -1,0 +1,1309 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "(title)",
+    "version": "0000-00-00"
+  },
+  "tags": [],
+  "paths": {
+    "/Applications/{applicationName}": {
+      "get": {
+        "operationId": "Applications_get",
+        "summary": "Gets an instance of the resource.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Radius.Application.applicationName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Radius.Application"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        }
+      },
+      "patch": {
+        "operationId": "Applications_update",
+        "summary": "Updates an existing instance of the resource.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Radius.Application.applicationName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Radius.Application"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "definition": {
+                    "$ref": "#/components/schemas/Radius.ApplicationDefinition"
+                  },
+                  "status": {
+                    "$ref": "#/components/schemas/Radius.ApplicationStatus"
+                  }
+                },
+                "description": "The template for adding optional properties.",
+                "x-cadl-name": "Cadl.OptionalProperties<Cadl.UpdateableProperties_Radius.Application>"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "Applications_delete",
+        "summary": "Deletes an existing instance of the resource.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Radius.Application.applicationName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource deleted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cadl.Rest.Resource.ResourceDeletedResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/Applications": {
+      "post": {
+        "operationId": "Applications_create",
+        "summary": "Creates a new instance of the resource.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "A successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Radius.Application"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Resource create operation completed successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Radius.Application"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Radius.Application"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "Applications_list",
+        "summary": "Lists all instances of the resource.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Paged response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cadl.Rest.Resource.Page_Radius.Application"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/Applications/{applicationName}/Container/{resourceName}": {
+      "get": {
+        "operationId": "Containers_get",
+        "summary": "Gets an instance of the resource.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Radius.Application.applicationName"
+          },
+          {
+            "$ref": "#/components/parameters/Radius.Container.resourceName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Radius.Container"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        }
+      },
+      "patch": {
+        "operationId": "Containers_update",
+        "summary": "Updates an existing instance of the resource.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Radius.Application.applicationName"
+          },
+          {
+            "$ref": "#/components/parameters/Radius.Container.resourceName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Radius.Container"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "definition": {
+                    "$ref": "#/components/schemas/Radius.ContainerDefinition"
+                  },
+                  "status": {
+                    "$ref": "#/components/schemas/ResourceStatus"
+                  }
+                },
+                "description": "The template for adding optional properties.",
+                "x-cadl-name": "Cadl.OptionalProperties<Cadl.UpdateableProperties_Radius.Container>"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "Containers_delete",
+        "summary": "Deletes an existing instance of the resource.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Radius.Application.applicationName"
+          },
+          {
+            "$ref": "#/components/parameters/Radius.Container.resourceName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource deleted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cadl.Rest.Resource.ResourceDeletedResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/Applications/{applicationName}/Container": {
+      "post": {
+        "operationId": "Containers_create",
+        "summary": "Creates a new instance of the resource.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Radius.Application.applicationName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Radius.Container"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Resource create operation completed successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Radius.Container"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Radius.Container"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "Containers_list",
+        "summary": "Lists all instances of the resource.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Radius.Application.applicationName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paged response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cadl.Rest.Resource.Page_Radius.Container"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/Applications/{applicationName}/HttpRoutes/{resourceName}": {
+      "get": {
+        "operationId": "HttpRoutes_get",
+        "summary": "Gets an instance of the resource.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Radius.Application.applicationName"
+          },
+          {
+            "$ref": "#/components/parameters/Radius.HttpRoute.resourceName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Radius.HttpRoute"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        }
+      },
+      "patch": {
+        "operationId": "HttpRoutes_update",
+        "summary": "Updates an existing instance of the resource.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Radius.Application.applicationName"
+          },
+          {
+            "$ref": "#/components/parameters/Radius.HttpRoute.resourceName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Radius.HttpRoute"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "definition": {
+                    "$ref": "#/components/schemas/Radius.HttpRouteDefinition"
+                  },
+                  "status": {
+                    "$ref": "#/components/schemas/Radius.HttpRouteStatus"
+                  }
+                },
+                "description": "The template for adding optional properties.",
+                "x-cadl-name": "Cadl.OptionalProperties<Cadl.UpdateableProperties_Radius.HttpRoute>"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "HttpRoutes_delete",
+        "summary": "Deletes an existing instance of the resource.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Radius.Application.applicationName"
+          },
+          {
+            "$ref": "#/components/parameters/Radius.HttpRoute.resourceName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource deleted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cadl.Rest.Resource.ResourceDeletedResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/Applications/{applicationName}/HttpRoutes": {
+      "post": {
+        "operationId": "HttpRoutes_create",
+        "summary": "Creates a new instance of the resource.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Radius.Application.applicationName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Radius.HttpRoute"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Resource create operation completed successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Radius.HttpRoute"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Radius.HttpRoute"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "HttpRoutes_list",
+        "summary": "Lists all instances of the resource.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Radius.Application.applicationName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paged response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cadl.Rest.Resource.Page_Radius.HttpRoute"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "Radius.Application.applicationName": {
+        "name": "applicationName",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Radius.Container.resourceName": {
+        "name": "resourceName",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Radius.HttpRoute.resourceName": {
+        "name": "resourceName",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "schemas": {
+      "Radius.Application": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "definition": {
+            "$ref": "#/components/schemas/Radius.ApplicationDefinition"
+          },
+          "status": {
+            "$ref": "#/components/schemas/Radius.ApplicationStatus"
+          }
+        },
+        "required": [
+          "name",
+          "definition",
+          "status"
+        ]
+      },
+      "Radius.ApplicationDefinition": {
+        "type": "object",
+        "properties": {}
+      },
+      "Radius.ApplicationStatus": {
+        "type": "object",
+        "properties": {
+          "provisioningState": {
+            "type": "string",
+            "readOnly": true
+          },
+          "provisioningErrorDetails": {
+            "type": "string",
+            "readOnly": true
+          },
+          "healthState": {
+            "type": "string",
+            "readOnly": true
+          },
+          "healthErrorDetails": {
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "provisioningState",
+          "provisioningErrorDetails",
+          "healthState",
+          "healthErrorDetails"
+        ]
+      },
+      "Cadl.Rest.Resource.ResourceDeletedResponse": {
+        "type": "object",
+        "properties": {},
+        "description": "Resource deleted successfully."
+      },
+      "Cadl.Rest.Resource.Page_Radius.Application": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Radius.Application"
+            },
+            "x-cadl-name": "Radius.Application[]",
+            "description": "The items on this page"
+          },
+          "nextLink": {
+            "type": "string",
+            "description": "The link to the next page of items"
+          }
+        },
+        "description": "Paged response",
+        "required": [
+          "value"
+        ]
+      },
+      "Radius.Container": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "definition": {
+            "$ref": "#/components/schemas/Radius.ContainerDefinition"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ResourceStatus"
+          }
+        },
+        "required": [
+          "name",
+          "definition",
+          "status"
+        ]
+      },
+      "Radius.ContainerDefinition": {
+        "type": "object",
+        "properties": {
+          "connections": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Connection"
+            }
+          },
+          "container": {
+            "$ref": "#/components/schemas/Radius.ContainerDefinitionContainer"
+          },
+          "secrets": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "traits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Trait"
+            },
+            "x-cadl-name": "Trait[]"
+          }
+        },
+        "required": [
+          "connections",
+          "container"
+        ]
+      },
+      "ResourceStatus": {
+        "type": "object",
+        "properties": {
+          "provisioningState": {
+            "type": "string",
+            "readOnly": true
+          },
+          "provisioningErrorDetails": {
+            "type": "string",
+            "readOnly": true
+          },
+          "healthState": {
+            "type": "string",
+            "readOnly": true
+          },
+          "healthErrorDetails": {
+            "type": "string",
+            "readOnly": true
+          },
+          "outputResources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "x-cadl-name": "(anonymous model)"
+            },
+            "x-cadl-name": "(anonymous model)[]",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "provisioningState",
+          "provisioningErrorDetails",
+          "healthState",
+          "healthErrorDetails"
+        ]
+      },
+      "Cadl.Rest.Resource.Page_Radius.Container": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Radius.Container"
+            },
+            "x-cadl-name": "Radius.Container[]",
+            "description": "The items on this page"
+          },
+          "nextLink": {
+            "type": "string",
+            "description": "The link to the next page of items"
+          }
+        },
+        "description": "Paged response",
+        "required": [
+          "value"
+        ]
+      },
+      "Radius.HttpRoute": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "definition": {
+            "$ref": "#/components/schemas/Radius.HttpRouteDefinition"
+          },
+          "status": {
+            "$ref": "#/components/schemas/Radius.HttpRouteStatus"
+          }
+        },
+        "required": [
+          "name",
+          "definition",
+          "status"
+        ]
+      },
+      "Radius.HttpRouteDefinition": {
+        "type": "object",
+        "properties": {
+          "port": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Radius.HttpRouteStatus": {
+        "type": "object",
+        "properties": {
+          "provisioningState": {
+            "type": "string",
+            "readOnly": true
+          },
+          "provisioningErrorDetails": {
+            "type": "string",
+            "readOnly": true
+          },
+          "healthState": {
+            "type": "string",
+            "readOnly": true
+          },
+          "healthErrorDetails": {
+            "type": "string",
+            "readOnly": true
+          },
+          "outputResources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "x-cadl-name": "(anonymous model)"
+            },
+            "x-cadl-name": "(anonymous model)[]",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "provisioningState",
+          "provisioningErrorDetails",
+          "healthState",
+          "healthErrorDetails"
+        ]
+      },
+      "Cadl.Rest.Resource.Page_Radius.HttpRoute": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Radius.HttpRoute"
+            },
+            "x-cadl-name": "Radius.HttpRoute[]",
+            "description": "The items on this page"
+          },
+          "nextLink": {
+            "type": "string",
+            "description": "The link to the next page of items"
+          }
+        },
+        "description": "Paged response",
+        "required": [
+          "value"
+        ]
+      },
+      "Connection": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/AzureConnection"
+          },
+          {
+            "$ref": "#/components/schemas/AzureKeyVaultConnection"
+          },
+          {
+            "$ref": "#/components/schemas/AzureServiceBusQueueConnection"
+          },
+          {
+            "$ref": "#/components/schemas/DaprInvokeHttpConnection"
+          },
+          {
+            "$ref": "#/components/schemas/DaprPubSubTopicConnection"
+          },
+          {
+            "$ref": "#/components/schemas/GrpcConnection"
+          },
+          {
+            "$ref": "#/components/schemas/HttpConnection"
+          },
+          {
+            "$ref": "#/components/schemas/SqlConnection"
+          },
+          {
+            "$ref": "#/components/schemas/MongoDBConnection"
+          },
+          {
+            "$ref": "#/components/schemas/RabbitMQMessageQueueConnection"
+          },
+          {
+            "$ref": "#/components/schemas/RedisCacheConnection"
+          }
+        ]
+      },
+      "Radius.ContainerDefinitionContainer": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "string"
+          },
+          "env": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "ports": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Radius.ContainerPort"
+            }
+          },
+          "readinessProbe": {
+            "$ref": "#/components/schemas/HealthProbe"
+          },
+          "livenessProbe": {
+            "$ref": "#/components/schemas/HealthProbe"
+          },
+          "volumes": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Volume"
+            }
+          }
+        },
+        "required": [
+          "image"
+        ]
+      },
+      "Trait": {
+        "type": "object",
+        "properties": {}
+      },
+      "AzureConnection": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "azure"
+            ]
+          },
+          "source": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "x-cadl-name": "Cadl.string[]"
+          }
+        },
+        "required": [
+          "kind",
+          "source",
+          "roles"
+        ]
+      },
+      "AzureKeyVaultConnection": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "azure.com/KeyVault"
+            ]
+          },
+          "source": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "x-cadl-name": "Cadl.string[]"
+          }
+        },
+        "required": [
+          "kind",
+          "source",
+          "roles"
+        ]
+      },
+      "AzureServiceBusQueueConnection": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "azure.com/ServiceBusQueue"
+            ]
+          },
+          "source": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "x-cadl-name": "Cadl.string[]"
+          }
+        },
+        "required": [
+          "kind",
+          "source",
+          "roles"
+        ]
+      },
+      "DaprInvokeHttpConnection": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "dapr.io/InvokeHttp"
+            ]
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "source"
+        ]
+      },
+      "DaprPubSubTopicConnection": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "dapr.io/PubSubTopic"
+            ]
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "source"
+        ]
+      },
+      "GrpcConnection": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "Grpc"
+            ]
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "source"
+        ]
+      },
+      "HttpConnection": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "Http"
+            ]
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "source"
+        ]
+      },
+      "SqlConnection": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "microsoft.com/SQL"
+            ]
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "source"
+        ]
+      },
+      "MongoDBConnection": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "mongo.com/MongoDB"
+            ]
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "source"
+        ]
+      },
+      "RabbitMQMessageQueueConnection": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "rabbitmq.com/MessageQueue"
+            ]
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "source"
+        ]
+      },
+      "RedisCacheConnection": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "redislabs.com/Redis"
+            ]
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "source"
+        ]
+      },
+      "Radius.ContainerPort": {
+        "type": "object",
+        "properties": {
+          "containerPort": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "protocol": {
+            "type": "string",
+            "enum": [
+              "TCP",
+              "UDP"
+            ],
+            "x-cadl-name": "TCP | UDP"
+          },
+          "provides": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "containerPort"
+        ]
+      },
+      "HealthProbe": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/HttpGetHealthProbe"
+          },
+          {
+            "$ref": "#/components/schemas/TcpHealthProbe"
+          },
+          {
+            "$ref": "#/components/schemas/ExecHealthProbe"
+          }
+        ]
+      },
+      "Volume": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/EphemeralVolume"
+          },
+          {
+            "$ref": "#/components/schemas/PersistentVolume"
+          }
+        ]
+      },
+      "HttpGetHealthProbe": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "httpGet"
+            ]
+          },
+          "containerPort": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "path": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "initialDelaySeconds": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "failureThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "periodSeconds": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "kind",
+          "containerPort",
+          "path"
+        ]
+      },
+      "TcpHealthProbe": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "tcp"
+            ]
+          },
+          "containerPort": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "initialDelaySeconds": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "failureThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "periodSeconds": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "kind",
+          "containerPort"
+        ]
+      },
+      "ExecHealthProbe": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "exec"
+            ]
+          },
+          "command": {
+            "type": "string"
+          },
+          "initialDelaySeconds": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "failureThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "periodSeconds": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "kind",
+          "command"
+        ]
+      },
+      "EphemeralVolume": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "ephemeral"
+            ]
+          },
+          "mountPath": {
+            "type": "string"
+          },
+          "managedStore": {
+            "type": "string",
+            "enum": [
+              "memory",
+              "disk"
+            ],
+            "x-cadl-name": "memory | disk"
+          }
+        },
+        "required": [
+          "kind",
+          "mountPath",
+          "managedStore"
+        ]
+      },
+      "PersistentVolume": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "persistent"
+            ]
+          },
+          "mountPath": {
+            "type": "string"
+          },
+          "rbac": {
+            "type": "string",
+            "enum": [
+              "read",
+              "write"
+            ],
+            "x-cadl-name": "read | write"
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "mountPath",
+          "source"
+        ]
+      }
+    }
+  }
+}

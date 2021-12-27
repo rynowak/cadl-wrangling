@@ -1,0 +1,27 @@
+import "./application.cadl";
+import "./resource-status.cadl";
+
+import "@cadl-lang/rest";
+
+namespace Radius;
+
+using Cadl.Http;
+using Cadl.Rest;
+using Cadl.Rest.Resource;
+
+@parentResource(Application)
+model HttpRoute {
+    @segment("HttpRoutes")
+    @key("resourceName")
+    name: string;
+    definition: HttpRouteDefinition;
+    status: HttpRouteStatus;
+}
+
+model HttpRouteDefinition {
+    port?: int32;
+}
+
+model HttpRouteStatus {
+    ...ResourceStatus;
+}

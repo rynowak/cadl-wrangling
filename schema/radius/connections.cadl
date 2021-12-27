@@ -1,0 +1,79 @@
+// @discriminator("kind")
+union Connection {
+    azureConnection: AzureConnection;
+    azureKeyVault: AzureKeyVaultConnection;
+    azureServiceBusQueueConnection: AzureServiceBusQueueConnection;
+    daprInvokeHttpConnection: DaprInvokeHttpConnection;
+    daprPubSubTopicConnection: DaprPubSubTopicConnection;
+    grpcConnection: GrpcConnection;
+    httpConnection: HttpConnection;
+    sqlConnection: SqlConnection;
+    mongoDBConnection: MongoDBConnection;
+    rabbitMQMessageQueueConnection: RabbitMQMessageQueueConnection;
+    redisCacheConnection: RedisCacheConnection;
+}
+
+model AzureConnection {
+    kind: "azure";
+    source: string;
+    roles: string[];
+}
+
+model AzureKeyVaultConnection {
+    kind: "azure.com/KeyVault";
+    source: string;
+    roles: string[];
+}
+
+model AzureServiceBusQueueConnection {
+    kind: "azure.com/ServiceBusQueue",
+    source: string;
+    roles: string[];
+}
+
+model DaprInvokeHttpConnection {
+    kind: "dapr.io/InvokeHttp",
+    source: string;
+}
+
+model DaprPubSubTopicConnection {
+    kind: "dapr.io/PubSubTopic",
+    source: string;
+}
+
+model DaprStateStoreConnection {
+    kind: "dapr.io/StateStore",
+    source: string;
+}
+
+model GrpcConnection {
+    kind: "Grpc",
+    source: string;
+}
+
+model HttpConnection {
+    kind: "Http",
+    source: string;
+}
+
+model SqlConnection {
+    kind: "microsoft.com/SQL";
+    source: string;
+}
+
+model MongoDBConnection {
+    kind: "mongo.com/MongoDB";
+    source: string;
+}
+
+model RabbitMQMessageQueueConnection {
+    kind: "rabbitmq.com/MessageQueue";
+    source: string;
+}
+
+model RedisCacheConnection {
+    kind: "redislabs.com/Redis";
+    source: string;
+}
+
+alias Connections = Map<string, Connection>;
