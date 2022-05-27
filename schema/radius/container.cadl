@@ -6,6 +6,7 @@ import "./traits.cadl";
 import "./volumes.cadl";
 
 import "@cadl-lang/rest";
+import "@radius/cadl-terraform";
 
 namespace Radius;
 

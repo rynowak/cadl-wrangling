@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "cadl": "node ./node_modules/@cadl-lang/compiler/cmd/cadl.js"
+    "openapi": "node ./node_modules/@cadl-lang/compiler/cmd/cadl.js compile api.cadl"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "@cadl-lang/rest": "^0.8.0"
   },
   "devDependencies": {
-    "@cadl-lang/compiler": "^0.25.0"
+    "@cadl-lang/compiler": "^0.25.0",
+    "@radius/cadl-terraform": "file:../../src/@radius/cadl-terraform"
   }
 }

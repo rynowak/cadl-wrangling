@@ -1,10 +1,10 @@
 import "./application.cadl";
 import "./container.cadl";
 import "./http-route.cadl";
-import "./decorators.js";
 
 import "@cadl-lang/openapi3";
 import "@cadl-lang/rest";
+import "@radius/cadl-terraform";
 
 using Cadl.Http;
 using Cadl.Rest;
@@ -54,4 +54,9 @@ namespace Radius {
     interface Applications mixes ResourceOperations<Application, ErrorBody>{}
     interface Containers mixes ResourceOperations<Container, ErrorBody>{}
     interface HttpRoutes mixes ResourceOperations<HttpRoute, ErrorBody>{}
+}
+
+@terraform()
+namespace Radius.Terraform {
+
 }

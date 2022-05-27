@@ -1,0 +1,20 @@
+{
+  "name": "@radius/cadl-terraform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/openapi.js",
+  "cadlMain": "dist/plugin.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cadl-lang/compiler": "^0.25.0",
+    "@types/node": "^17.0.5",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}
