@@ -1,0 +1,129 @@
+import "@cadl-lang/rest";
+import "@azure-tools/cadl-autorest";
+
+using Cadl.Http;
+
+namespace Radius {
+    @get
+    @route("/{scope}/providers/Applications.Core/environments")
+    op listEnvironments(@path scope: string): 
+        OkResponse<ResourceList<EnvironmentResource>> | NotFoundResponse;
+
+    @get
+    @route("/{scope}/providers/Applications.Core/environments/{resourceName}")
+    op getEnvironment(@path scope: string, @path resourceName: string): 
+        OkResponseWithETag<EnvironmentResource> | NotFoundResponse;
+
+    @put
+    @route("/{scope}/providers/Applications.Core/environments/{resourceName}")
+    op updateEnvironment(@path scope: string, @path resourceName: string, @body resource: EnvironmentResource): 
+        OkResponseWithETag<EnvironmentResource> | 
+        CreatedAsyncResponseWithETag<EnvironmentResource> | 
+        AcceptedAsyncResponseWithETag<EnvironmentResource>;
+
+    @delete
+    @route("/{scope}/providers/Applications.Core/environments/{resourceName}")
+    op deleteEnvironment(@path scope: string, @path resourceName: string):
+        AcceptedAsyncResponseWithETag<EnvironmentResource> |
+        NoContentResponse;
+
+    @get
+    @route("/{scope}/providers/Applications.Core/applications")
+    op listApplications(@path scope: string): 
+        OkResponse<ResourceList<ApplicationResource>> | NotFoundResponse;
+
+    @get
+    @route("/{scope}/providers/Applications.Core/applications/{resourceName}")
+    op getApplication(@path scope: string, @path resourceName: string): 
+        OkResponseWithETag<ApplicationResource> | NotFoundResponse;
+
+    @put
+    @route("/{scope}/providers/Applications.Core/applications/{resourceName}")
+    op updateApplication(@path scope: string, @path resourceName: string, @body resource: ApplicationResource): 
+        OkResponseWithETag<ApplicationResource> | 
+        CreatedAsyncResponseWithETag<ApplicationResource> | 
+        AcceptedAsyncResponseWithETag<ApplicationResource>;
+
+    @delete
+    @route("/{scope}/providers/Applications.Core/applications/{resourceName}")
+    op deleteApplication(@path scope: string, @path resourceName: string):
+        AcceptedAsyncResponseWithETag<EnvironmentResource> |
+        NoContentResponse;
+}
+
+model OkResponseWithETag<Body> {
+    ...OkResponse<Body>;
+    @header eTag: string;
+}
+
+model CreatedAsyncResponseWithETag<Body> {
+    @body body: Body;
+    @statusCode statusCode: 201;
+    @header eTag: string;
+    @header location: string
+}
+
+
+model AcceptedAsyncResponseWithETag<Body> {
+    @body body: Body;
+    @statusCode statusCode: 202;
+    @header eTag: string;
+    @header location: string
+}
+
+@summary("The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'") 
+model TrackedResource {
+    @summary("Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}")
+    @visibility("read")
+    id: string,
+
+    @summary("The geo-location where the resource lives")
+    location: string;
+
+    @summary("Resource tags.")
+    tags: Map<string, string>;
+
+    @summary("The name of the resource")
+    @visibility("read") 
+    name: string,
+    
+    @summary("The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"")
+    @visibility("read") 
+    type: string,
+}
+
+model ResourceList<T> {
+    items: T[]
+}
+
+model EnvironmentResource extends TrackedResource {
+    properties: EnvironmentProperties
+}
+
+model EnvironmentProperties {
+}
+
+model ApplicationResource extends TrackedResource {
+    properties: ApplicationProperties
+}
+
+model ApplicationProperties {
+    @visibility("read") 
+    status: ApplicationStatus
+}
+
+@summary("Status of an application.")
+model ApplicationStatus {
+    @summary("Health errors for the application")
+    healthErrorDetails: string,
+
+    @summary("Health state of the application")
+    healthState: string,
+
+    @summary("Provisioning errors for the application")
+    provisioningErrorDetails: string,
+
+    @summary("Provisioning state of the application")
+    provisioningState: string,
+}
+

@@ -1,0 +1,486 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "(title)",
+    "version": "0000-00-00"
+  },
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "tags": [],
+  "paths": {
+    "/{scope}/providers/Applications.Core/applications": {
+      "get": {
+        "operationId": "Radius_listApplications",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/ResourceList_ApplicationResource"
+            }
+          },
+          "404": {
+            "description": "The server can not find the requested resource."
+          }
+        }
+      }
+    },
+    "/{scope}/providers/Applications.Core/applications/{resourceName}": {
+      "get": {
+        "operationId": "Radius_getApplication",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resourceName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "e-tag": {
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ApplicationResource"
+            }
+          },
+          "404": {
+            "description": "The server can not find the requested resource."
+          }
+        }
+      },
+      "put": {
+        "operationId": "Radius_updateApplication",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resourceName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resource",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ApplicationResource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "e-tag": {
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ApplicationResource"
+            }
+          },
+          "201": {
+            "description": "Created",
+            "headers": {
+              "e-tag": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ApplicationResource"
+            }
+          },
+          "202": {
+            "description": "Accepted",
+            "headers": {
+              "e-tag": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ApplicationResource"
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "Radius_deleteApplication",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resourceName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "headers": {
+              "e-tag": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/EnvironmentResource"
+            }
+          },
+          "204": {
+            "description": "There is no content to send for this request, but the headers may be useful. "
+          }
+        }
+      }
+    },
+    "/{scope}/providers/Applications.Core/environments": {
+      "get": {
+        "operationId": "Radius_listEnvironments",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/ResourceList_EnvironmentResource"
+            }
+          },
+          "404": {
+            "description": "The server can not find the requested resource."
+          }
+        }
+      }
+    },
+    "/{scope}/providers/Applications.Core/environments/{resourceName}": {
+      "get": {
+        "operationId": "Radius_getEnvironment",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resourceName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "e-tag": {
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/EnvironmentResource"
+            }
+          },
+          "404": {
+            "description": "The server can not find the requested resource."
+          }
+        }
+      },
+      "put": {
+        "operationId": "Radius_updateEnvironment",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resourceName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resource",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EnvironmentResource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "e-tag": {
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/EnvironmentResource"
+            }
+          },
+          "201": {
+            "description": "Created",
+            "headers": {
+              "e-tag": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/EnvironmentResource"
+            }
+          },
+          "202": {
+            "description": "Accepted",
+            "headers": {
+              "e-tag": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/EnvironmentResource"
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "Radius_deleteEnvironment",
+        "parameters": [
+          {
+            "name": "scope",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resourceName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "headers": {
+              "e-tag": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/EnvironmentResource"
+            }
+          },
+          "204": {
+            "description": "There is no content to send for this request, but the headers may be useful. "
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ApplicationProperties": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/ApplicationStatus",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "ApplicationResource": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/ApplicationProperties"
+        }
+      },
+      "required": [
+        "properties"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/TrackedResource"
+        }
+      ]
+    },
+    "ApplicationStatus": {
+      "type": "object",
+      "properties": {
+        "healthErrorDetails": {
+          "type": "string",
+          "summary": "Health errors for the application"
+        },
+        "healthState": {
+          "type": "string",
+          "summary": "Health state of the application"
+        },
+        "provisioningErrorDetails": {
+          "type": "string",
+          "summary": "Provisioning errors for the application"
+        },
+        "provisioningState": {
+          "type": "string",
+          "summary": "Provisioning state of the application"
+        }
+      },
+      "required": [
+        "healthErrorDetails",
+        "healthState",
+        "provisioningErrorDetails",
+        "provisioningState"
+      ]
+    },
+    "EnvironmentProperties": {
+      "type": "object",
+      "properties": {}
+    },
+    "EnvironmentResource": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/EnvironmentProperties"
+        }
+      },
+      "required": [
+        "properties"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/TrackedResource"
+        }
+      ]
+    },
+    "ResourceList_ApplicationResource": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ApplicationResource"
+          },
+          "x-cadl-name": "ApplicationResource[]"
+        }
+      },
+      "required": [
+        "items"
+      ]
+    },
+    "ResourceList_EnvironmentResource": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EnvironmentResource"
+          },
+          "x-cadl-name": "EnvironmentResource[]"
+        }
+      },
+      "required": [
+        "items"
+      ]
+    },
+    "TrackedResource": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "summary": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "readOnly": true
+        },
+        "location": {
+          "type": "string",
+          "summary": "The geo-location where the resource lives"
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string",
+          "summary": "The name of the resource",
+          "readOnly": true
+        },
+        "type": {
+          "type": "string",
+          "summary": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "id",
+        "location",
+        "tags",
+        "name",
+        "type"
+      ]
+    }
+  },
+  "parameters": {}
+}
